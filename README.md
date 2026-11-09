@@ -1,8 +1,8 @@
-# Burmak Portfolio
+# Projects and Hobbies
 
 A school portfolio website built with HTML, CSS and JavaScript.
 
-Projects: Context Reader, Shorts Lab and Orbital Arsenal.
+Projects: Context Reader, Shorts Lab and Game addition.
 
 Open `index.html` or serve this folder with a local web server. For GitHub Pages, select the main branch and the root folder in repository Settings → Pages.
 
