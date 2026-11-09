@@ -1,0 +1,154 @@
+/* Include padding and borders in element widths. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #101510;
+  color: #e4e1d7;
+  font-family: Arial, sans-serif;
+  line-height: 1;
+}
+
+/* Top navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 22px 7%;
+  background: #031c05;
+  border-bottom: 1px solid #55513d;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand {
+  color: #b5a575;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+}
+
+nav a:hover {
+  color: #b5a575;
+}
+
+/* Main introduction */
+.hero {
+  padding: 90px 7%;
+  background: linear-gradient(120deg, #193b2b, #101513 75%);
+  border-bottom: 1px solid #353e36;
+}
+
+.eyebrow {
+  color: #b5a575;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+h1 {
+  margin: 20px 0;
+  font-size: clamp(48px, 8vw, 100px);
+  line-height: 1.05;
+  font-weight: normal;
+}
+
+.intro {
+  max-width: 480px;
+  color: #b5bcb4;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 24px;
+  border: 1px solid #b5a575;
+  color: #d4c694;
+}
+
+.button:hover {
+  background: #b5a575;
+  color: #101513;
+}
+
+/* Supporting sections */
+.content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 7%;
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: normal;
+}
+
+.content > p {
+  max-width: 650px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+article {
+  padding: 28px;
+  background: #171f1a;
+  border: 1px solid #353e36;
+  border-top: 3px solid #82764f;
+}
+
+article span {
+  color: #b5a575;
+  font-size: 28px;
+}
+
+article p {
+  color: #b5bcb4;
+}
+
+footer {
+  padding: 35px 7%;
+  border-top: 1px solid #353e36;
+  color: #a4ada3;
+}
+
+footer p {
+  color: #b5a575;
+  letter-spacing: 3px;
+}
+
+/* Scrollbar styling */
+html {
+  scrollbar-color: #82764f #101513;
+  scrollbar-width: thin;
+}
+
+/* Layout for smaller screens */
+@media (max-width: 650px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 60px 7%;
+  }
+}
