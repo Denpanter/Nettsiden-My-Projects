@@ -1,0 +1,69 @@
+.css-stage{isolation:isolate;background:#102019;}
+.css-view{position:absolute;inset:0;perspective-origin:50% 50%;overflow:hidden;}
+.css-camera{position:absolute;left:50%;top:50%;width:0;height:0;transform-origin:0 0;transform-style:preserve-3d;will-change:transform;}
+.css-surface{position:absolute;left:0;top:0;transform-origin:0 0;backface-visibility:visible;box-sizing:border-box;}
+.css-clip-defs{position:absolute;width:0;height:0;pointer-events:none;}
+.css-door-hinge{position:absolute;left:0;top:0;width:0;height:0;transform-origin:0 0;transform-style:preserve-3d;}
+.css-door-leaf{position:absolute;background-repeat:no-repeat;backface-visibility:visible;box-shadow:inset 0 0 15px #02090477;will-change:transform;}
+.css-floor{background-color:#889a8d;background-blend-mode:multiply;}
+.css-ceiling{background-color:#3e5449;background-blend-mode:multiply;}
+.css-sidewall{background-color:#586f60;background-blend-mode:multiply;}
+.css-arch-wall{background-color:#65796d;background-blend-mode:multiply;}
+.css-arch-soffit{background-color:#3e5548;background-blend-mode:multiply;}
+.css-tunnel{background-color:#435b49;background-blend-mode:multiply;}
+.css-banner{filter:brightness(.7) saturate(.75);}
+.css-project-niche{background:url('../bilder/layers/stone-material.png') center / 128px;border-radius:50% 50% 0 0 / 33% 33% 0 0;box-shadow:0 1px 4px #020c08c0;overflow:hidden;}
+.css-project-niche>i{position:absolute;inset:4px 4px 2px;background:repeating-linear-gradient(90deg,#243d2d20 0 1px,transparent 1px 3px),linear-gradient(100deg,#0d2319,#163020 55%,#0b1d15);border-radius:inherit;box-shadow:inset 0 0 12px #0008;}
+.css-project-art{border:1.6px solid #a38a51;background:#0b1c14;box-shadow:0 2px 5px #0008,inset 0 0 0 1px #151d16;overflow:hidden;}
+.css-project-art>img{display:block;width:100%;height:100%;object-fit:cover;}
+.css-contact-shadow{background:radial-gradient(ellipse,#020c0888,transparent 70%);}
+.css-lamp{position:absolute;}
+.css-lamp-roof{position:absolute;left:-8%;right:-8%;top:4%;height:23%;background:linear-gradient(100deg,#455044,#09160f 70%);clip-path:polygon(50% 0,100% 90%,100% 100%,0 100%,0 90%);}
+.css-lamp-glass{position:absolute;left:9%;right:9%;top:25%;bottom:18%;border:2px solid #3e3721;background:linear-gradient(90deg,#644d24,#e5a549 40%,#f9dba1 52%,#c58633 65%,#59401f);box-shadow:0 0 10px #f7bb5d50,inset 0 0 4px #fff5c5;}
+.css-lamp-glass::after{content:"";position:absolute;left:48%;top:0;bottom:0;width:1.5px;background:#463d27;}
+.css-lamp-foot{position:absolute;left:3%;right:3%;height:8%;bottom:12%;background:#222b1d;box-shadow:0 5px 0 -1px #7b6536;}
+.css-lamp-glow{background:radial-gradient(ellipse,#ffd09232, #efad4e12 30%,transparent 65%);animation:css-lamp-breathe 3.7s ease-in-out infinite alternate;}
+.css-dust{background:#d4d1a6;border-radius:50%;box-shadow:0 0 2px #d6d8b8;opacity:.2;animation:css-dust-breathe 7s ease-in-out infinite alternate;}
+.css-lens{position:absolute;inset:0;pointer-events:none;z-index:2;opacity:.25;background:radial-gradient(ellipse at 50% 48%,transparent 35%,#04110b88 115%),linear-gradient(180deg,#06140c10,transparent 25%,transparent 75%,#04100825);}
+@keyframes css-lamp-breathe{from{opacity:.82}to{opacity:1}}
+@keyframes css-dust-breathe{0%,20%{opacity:.08}80%,100%{opacity:.3}}
+.css-vegetation{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.css-stage .world-project{z-index:4;}
+@media(prefers-reduced-motion:reduce){.css-lamp-glow,.css-dust{animation:none;}}
+/* Unified art direction: one stone-and-emerald gallery rather than UI cards on a picture. */
+.css-facade{filter:saturate(.82) contrast(1.035) brightness(.95);}
+.css-painted-wall{background-size:100% 160%!important;background-position:center top!important;filter:brightness(.87) saturate(.82);}
+.css-project-art img{filter:saturate(.88) contrast(1.015) brightness(.96);}
+.css-project-art::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(118deg,transparent 20%,#f1f5e90b 47%,transparent 68%);}
+.world-ready>header{height:66px;padding:0 7%;flex-wrap:nowrap;background:#07150fed;border-bottom:1px solid #b6a16d33;}
+.world-ready header .brand{font-size:19px;font-weight:500;letter-spacing:4px;color:#c7b27e;}
+.world-ready header nav{gap:24px;font-size:12px;letter-spacing:.3px;}
+.world-ready header nav a{color:#b8c1b8;transition:color .2s;border:0!important;}
+.world-ready header nav a:hover,.world-ready header nav a[aria-current="page"]{color:#e8d7ad;}
+.in-hall .world-title{padding:0;background:transparent;border:0;color:#e9e5d7;text-shadow:0 2px 18px #000b;}
+.in-hall .world-title p{font-size:8px;font-weight:400;letter-spacing:2.8px;color:#c3b07c;}
+.world-title h1{font-size:clamp(30px,4.5vw,58px);font-weight:400;letter-spacing:-1.4px;margin-top:16px;}
+.in-hall .world-title::before{content:"";display:block;width:32px;height:1px;background:#ac9463;margin-bottom:16px;}
+.world-outside-copy h1{line-height:1.02;letter-spacing:-3px;}
+.world-outside-copy button{display:inline-flex;align-items:center;gap:26px;border-bottom:1px solid #b6a16d6b;padding-bottom:12px;}
+.world-outside-copy button span{display:inline-grid;place-items:center;padding:0;width:28px;height:28px;border:1px solid #b6a16d70;border-radius:50%;font:13px Arial,sans-serif;transition:transform .3s,background .3s;}
+.world-outside-copy button:hover span{transform:translate(2px,-2px);background:#b6a16d12;}
+.css-stage .world-project span{padding:10px 0 0;border:0;border-top:1px solid #b6a16d6b;background:transparent;color:#e3d3ad;box-shadow:none;text-shadow:0 1px 6px #000;letter-spacing:.2px;font-size:13px;}
+.world-hint{padding:0;background:none;border:0;border-radius:0;font-size:8px;letter-spacing:2px;color:#baa879;text-shadow:0 1px 8px #000;}
+.css-project-niche{box-shadow:0 1px 3px #0008;}
+.castle-loading body:not(.world-ready)::after{content:"Preparing the citadel…";position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);color:#bba678;font:12px Georgia,serif;letter-spacing:1px;}
+@media(max-width:560px){.world-ready header nav{gap:16px;font-size:11px;}.world-ready header .brand{font-size:17px;letter-spacing:3px;}.world-title h1{font-size:28px;}.world-title{top:90px;}.world-hint{max-width:90vw;font-size:8px;}.css-stage .world-project span{font-size:13px;}}
+.css-window-pool{background:radial-gradient(ellipse,#b8d5c228,transparent 70%);}
+.css-stage .world-project span{bottom:-30px;padding-top:8px;font-size:12px;line-height:1.3;}
+/* The recesses are stone, not a row of green interface panels. */
+.css-project-niche{background-color:#67796b;background-blend-mode:multiply;}
+.css-project-niche>i{background:linear-gradient(110deg,#06110a99,#10221966 55%,#050e08a8);box-shadow:inset 0 0 12px #020904b0;}
+.css-lens::after{content:"";position:absolute;inset:0;backdrop-filter:blur(1.3px);-webkit-backdrop-filter:blur(1.3px);mask-image:radial-gradient(ellipse,transparent 38%,#000 110%);-webkit-mask-image:radial-gradient(ellipse,transparent 38%,#000 110%);}
+@media(prefers-reduced-motion:reduce){.css-lens::after{backdrop-filter:none;-webkit-backdrop-filter:none;}}
+
+.world-ready .world-project,.world-ready .world-title{transition:opacity .45s ease,box-shadow .25s,outline-color .25s;}.world-gallery-controls{transition:opacity .35s;}
+
+.css-project-art{border-width:3px;}.css-project-niche>i{inset:8px 8px 4px;}
+
+/* Screen-space labels must never remain over a moving camera. */
+.flying .world-project,.flying .world-title,.flying .world-gallery-controls{visibility:hidden;opacity:0!important;transition:none!important;}

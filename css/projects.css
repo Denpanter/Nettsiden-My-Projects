@@ -90,3 +90,5 @@
 .card-shade { background:linear-gradient(180deg,rgba(4,14,10,.42) 0%,transparent 24%,transparent 40%,rgba(6,17,11,.65) 73%,#06110b 100%); }
 #dialog-orbital .dialog-image img { max-height:none; height:auto; }
 #dialog-orbital .dialog-image a { display:block; }
+
+.projects-page{overflow-x:clip;}
