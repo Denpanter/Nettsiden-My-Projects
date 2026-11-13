@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>document.documentElement.classList.add("castle-loading");</script>
+  <script>document.documentElement.classList.add("castle-loading");</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="bilder/favicon.png">
   <title>Burmak — Game. Create. Think.</title>
-  <link rel="stylesheet" href="style.css?v=live-flight-3">
-<link rel="stylesheet" href="css/projects.css?v=gallery-clean-1">
-<link rel="stylesheet" href="css/castle-world.css?v=depth-9">
-<link rel="stylesheet" href="css/castle-css-world.css?v=6">
+  <link rel="stylesheet" href="style.css?v=14">
 </head>
 
 <body>
@@ -16,25 +14,21 @@
     <a class="brand" href="#home">Burmak</a>
 
     <nav>
-      <a href="project.html?v=hall-1">My projects</a>
+      <a href="project.html">My projects</a>
     </nav>
   </header>
 
+  <div class="castle-screen"></div>
+
   <main>
     <section class="hero" id="home">
-      <div class="hero-copy"><p class="eyebrow">A WORLD OF MY OWN</p>
-      <h1>Game.<br>Create.<br>Think.</h1>
-      
-      <a class="button" href="project.html?v=hall-1">Enter the Citadel <span aria-hidden="true">↗</span></a></div>
-      <div class="castle-front" aria-hidden="true">
-        <img class="castle-backdrop" src="bilder/citadel-sculpted.png" alt="">
-        <canvas id="castle"></canvas>
-      </div>
-      <a class="gate-entrance" href="project.html?v=hall-1" aria-label="Enter the castle and explore my projects"><span>Enter the castle ↗</span></a>
-      <p class="scene-hint">THE CITADEL <span>Brush the ivy · Wake the lights</span></p>
-    </section>
+      <div class="hero-copy">
+        <p class="eyebrow">A WORLD OF MY OWN</p>
+        <h1>Game.<br>Create.<br>Think.</h1>
 
-    
+        <a class="button" href="project.html">Enter the Citadel <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
 
     <section class="content" id="principles">
       <p class="eyebrow">OUR FOUNDATIONS</p>
@@ -59,6 +53,19 @@
         </article>
       </div>
     </section>
+    <section class="about-me">
+      <div class="cellar-content">
+        <h2>Denys Burmak</h2>
+        <p>I build websites, experiment with Minecraft mods, and turn ideas into tools I can use.</p>
+        <h3>What I like building</h3>
+        <p>I made Context Reader to help me read Norwegian and Shorts Lab to explore what makes short videos grow.</p>
+        <h3>Contact</h3>
+      <p>
+        <a href="mailto:byrmakdenis07@gmail.com">byrmakdenis07@gmail.com</a><br>
+        <a href="tel:91258393">91258393</a>
+      </p>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -67,9 +74,16 @@
   </footer>
 
 <dialog class="project-dialog" id="dialog-orbital" aria-labelledby="title-orbital"><button class="dialog-close" type="button" aria-label="Close project">×</button><div class="dialog-image"><a href="bilder/orbital-gameplay-dark-en.png" target="_blank" rel="noopener" aria-label="Open full-size gameplay image"><img src="bilder/orbital-gameplay-dark-en.png" alt="Enhanced Minecraft gameplay showing an orbital laser, the controller and the stratagem menu in English" width="1586" height="992"></a></div><div class="dialog-body"><p class="eyebrow">03 / GAME DEVELOPMENT</p><h2 id="title-orbital">Orbital Arsenal</h2><p class="image-note">Gameplay image — AI-enhanced lighting and English interface translation. Click the image to view it full size.</p><div class="project-details"><div><div class="project-tags"><span>Java</span><span>Fabric</span><span>Minecraft</span></div><h3>The idea</h3><p>I worked on a Minecraft mod that adds orbital strikes and reinforcement tools. It brings a science-fiction idea into a block world, with custom controllers, effects and multiplayer support.</p><h3>What I learned</h3><p>How game mechanics connect to player input, why multiplayer needs server-side logic, and how testing helps find bugs.</p></div><div class="project-process"><h3>How it works</h3><ol><li><strong>Choose a target</strong><p>The player uses an in-game controller to mark a location.</p></li><li><strong>Call the strike</strong><p>The mod processes the request and starts the strike sequence.</p></li><li><strong>See the result</strong><p>The strike reaches the target, triggering its effects in the game world.</p></li></ol></div></div>
-      </div></dialog><dialog class="project-dialog" id="dialog-reader" aria-labelledby="title-reader"><button class="dialog-close" type="button" aria-label="Close project">×</button><div class="dialog-image"><img src="bilder/context-reader-en.png" alt="Context Reader application screenshot" width="1440" height="1000"></div><div class="dialog-body"><p class="eyebrow">01 / LANGUAGE LEARNING</p><h2 id="title-reader">Context Reader</h2><div class="project-details"><div><div class="project-tags"><span>JavaScript</span><span>TXT / EPUB</span><span>Translation</span></div><h3>The idea</h3><p>I worked on a browser-based reader for English texts, with support for Norwegian too. Instead of leaving the book to look up a word, I can select it, see a Russian translation and save it for later.</p><h3>What I learned</h3><p>How to work with book files, build a comfortable reading interface and store vocabulary in the browser.</p></div><div class="project-process"><h3>How it works</h3><ol><li><strong>Open a book</strong><p>Upload a TXT or EPUB file, paste text, or try the built-in sample.</p></li><li><strong>Translate in context</strong><p>Select a word or phrase to open its translation beside the text.</p></li><li><strong>Build a vocabulary</strong><p>Save useful words in a personal dictionary stored in the current browser.</p></li></ol></div></div>
-      </div></dialog><dialog class="project-dialog" id="dialog-shorts" aria-labelledby="title-shorts"><button class="dialog-close" type="button" aria-label="Close project">×</button><div class="dialog-image"><img src="bilder/shorts-lab-en.png" alt="Shorts Lab dashboard with English labels" width="1440" height="1000"></div><div class="dialog-body"><p class="eyebrow">02 / DATA & VIDEO</p><h2 id="title-shorts">Shorts Lab</h2><div class="project-details"><div><div class="project-tags"><span>Python</span><span>SQLite</span><span>YouTube data</span></div><h3>The idea</h3><p>I worked on a local app for researching YouTube Shorts. It keeps video statistics in one place so I can compare videos and follow changes over time.</p><h3>What I learned</h3><p>How to collect and organise data, save it in a database and turn numbers into useful charts. More observations make comparisons more useful.</p></div><div class="project-process"><h3>How it works</h3><ol><li><strong>Collect video data</strong><p>Add videos to track and collect available statistics.</p></li><li><strong>Keep a history</strong><p>Save repeated observations in a local SQLite database.</p></li><li><strong>Explore the growth</strong><p>Filter videos, compare their performance and inspect changes on charts. The app tracks observations; it cannot guarantee future views.</p></li></ol></div></div>
       </div></dialog>
-<script type="module" src="js/castle-css-world.js?v=6"></script>
+
+<dialog class="project-dialog" id="dialog-reader" aria-labelledby="title-reader"><button class="dialog-close" type="button" aria-label="Close project">×</button><div class="dialog-image"><img src="bilder/context-reader-en.png" alt="Context Reader application screenshot" width="1440" height="1000"></div><div class="dialog-body"><p class="eyebrow">01 / LANGUAGE LEARNING</p><h2 id="title-reader">Context Reader</h2><div class="project-details"><div><div class="project-tags"><span>JavaScript</span><span>TXT / EPUB</span><span>Translation</span></div><h3>The idea</h3><p>I worked on a browser-based reader for English texts, with support for Norwegian too. Instead of leaving the book to look up a word, I can select it, see a Russian translation and save it for later.</p><h3>What I learned</h3><p>How to work with book files, build a comfortable reading interface and store vocabulary in the browser.</p></div><div class="project-process"><h3>How it works</h3><ol><li><strong>Open a book</strong><p>Upload a TXT or EPUB file, paste text, or try the built-in sample.</p></li><li><strong>Translate in context</strong><p>Select a word or phrase to open its translation beside the text.</p></li><li><strong>Build a vocabulary</strong><p>Save useful words in a personal dictionary stored in the current browser.</p></li></ol></div></div>
+      </div></dialog>
+
+<dialog class="project-dialog" id="dialog-shorts" aria-labelledby="title-shorts"><button class="dialog-close" type="button" aria-label="Close project">×</button><div class="dialog-image"><img src="bilder/shorts-lab-en.png" alt="Shorts Lab dashboard with English labels" width="1440" height="1000"></div><div class="dialog-body"><p class="eyebrow">02 / DATA & VIDEO</p><h2 id="title-shorts">Shorts Lab</h2><div class="project-details"><div><div class="project-tags"><span>Python</span><span>SQLite</span><span>YouTube data</span></div><h3>The idea</h3><p>I worked on a local app for researching YouTube Shorts. It keeps video statistics in one place so I can compare videos and follow changes over time.</p><h3>What I learned</h3><p>How to collect and organise data, save it in a database and turn numbers into useful charts. More observations make comparisons more useful.</p></div><div class="project-process"><h3>How it works</h3><ol><li><strong>Collect video data</strong><p>Add videos to track and collect available statistics.</p></li><li><strong>Keep a history</strong><p>Save repeated observations in a local SQLite database.</p></li><li><strong>Explore the growth</strong><p>Filter videos, compare their performance and inspect changes on charts. The app tracks observations; it cannot guarantee future views.</p></li></ol></div></div>
+      </div></dialog>
+  <script type="module" src="js/castle-css-world.js?v=9"></script>
 </body>
 </html>
+
+
+

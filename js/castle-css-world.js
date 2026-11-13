@@ -2,7 +2,9 @@ import * as T from './vendor/three.core.js';
 
 // Image-based stage. The compositor animates the camera; JavaScript does not render flight frames.
 const U=64, center=6.384, floor=3.87, frontZ=16, radius=2.02, spring=7.58;
-const body=document.body, root=document.createElement('div');root.className='world-stage css-stage';body.prepend(root);
+const body=document.body, root=document.createElement('div');root.className='world-stage css-stage';const castleScreen = document.querySelector('.castle-screen');
+if (castleScreen) castleScreen.append(root);
+else body.prepend(root);
 const view=document.createElement('div');view.className='css-view';root.append(view);
 const rig=document.createElement('div');rig.className='css-camera';view.append(rig);
 const camera=new T.PerspectiveCamera(52,1,.1,180), outside=new T.Vector3(3,12,39), inside=new T.Vector3(center,7.1,2.5);
@@ -90,8 +92,8 @@ let seed=312;const random=()=>{seed=seed*16807%2147483647;return(seed-1)/2147483
 for(let i=0;i<38;i++){const mote=plane(.025+random()*.025,.025+random()*.025,center+(random()-.5)*12,floor+.5+random()*9,-13+random()*24,{className:'css-dust',focus:false});mote.el.style.animationDelay=-random()*8+'s';}
 const lens=element('css-lens',root);
 const title=document.createElement('div');title.className='world-title';title.innerHTML='<p>INSIDE THE CITADEL / SELECTED WORK</p><h1>The project hall.</h1>';body.append(title);
-const intro=document.createElement('div');intro.className='world-outside-copy';intro.innerHTML='<p>A WORLD OF MY OWN</p><h1>Game.<br>Create.<br>Think.</h1><button type="button">Enter the Citadel <span>↗</span></button>';body.append(intro);
-const hint=document.createElement('p');hint.className='world-hint';body.append(hint);
+const intro=document.createElement('div');intro.className='world-outside-copy';intro.innerHTML='<p>A WORLD OF MY OWN</p><h1>Game.<br>Create.<br>Think.</h1><button type="button">Enter the Citadel <span>↗</span></button>';(castleScreen || body).append(intro);
+const hint=document.createElement('p');hint.className='world-hint';(castleScreen || body).append(hint);
 const controls=document.createElement('div');controls.className='world-gallery-controls';controls.innerHTML='<button type="button" aria-label="Previous project">←</button><span></span><button type="button" aria-label="Next project">→</button>';body.append(controls);
 const navigation=document.querySelector('header nav');if(navigation)navigation.innerHTML='<a href="index.html">Home</a><a href="project.html">My projects</a>';
 document.querySelectorAll('.project-dialog').forEach(d=>{body.append(d);d.querySelector('.dialog-close')?.addEventListener('click',()=>d.close());d.addEventListener('click',e=>{const r=d.getBoundingClientRect();if(e.target===d&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))d.close();});});
@@ -105,7 +107,13 @@ function arrange(){for(let i=0;i<projects.length;i++){const p=projects[i],x=cent
 function labels(){pose(progress);for(const p of projects){const point=new T.Vector3(p.x,7.7,-15.1).project(camera),corner=new T.Vector3(p.x+2.05,10.45,-15.1).project(camera);p.button.style.left=(point.x*.5+.5)*stageRect.width+'px';p.button.style.top=(-point.y*.5+.5)*stageRect.height+'px';p.button.style.width=Math.abs(corner.x-point.x)*stageRect.width+'px';p.button.style.height=Math.abs(corner.y-point.y)*stageRect.height+'px';}}
 function restingOptics(value){for(const entry of optics){const distance=Math.abs(camera.position.z-entry.object.position.z);const blur=value>.99&&distance<7?.7:0;entry.el.style.filter=blur?`blur(${blur*distance*U/perspective}px)`:'none';}}
 function state(){body.classList.toggle('in-hall',progress>.995&&!flying);body.classList.toggle('flying',flying||(review!==null&&progress>0&&progress<1));intro.inert=progress>.995||flying;title.inert=progress<.995||flying;controls.inert=progress<.995||flying;body.style.setProperty('--gallery-reveal',progress>.995&&!flying?'1':'0');for(const link of document.querySelectorAll('header nav a')){if(link.getAttribute('href')===(progress>.995?'project.html':'index.html'))link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}document.title=progress>.995?'My projects — Burmak':'Burmak — Game. Create. Think.';hint.textContent=progress>.995?'SELECTED WORK / THREE PROJECTS':'01 — THE CITADEL';for(const p of projects){p.button.tabIndex=progress>.995&&!flying?0:-1;p.button.inert=progress<.995||flying;p.button.setAttribute('aria-hidden',String(progress<.995||flying));}}
-function resize(){if(flying)return;stageRect=root.getBoundingClientRect();camera.aspect=stageRect.width/stageRect.height;camera.updateProjectionMatrix();perspective=stageRect.height/(2*Math.tan(T.MathUtils.degToRad(26)));view.style.perspective=perspective+'px';compact=camera.aspect<.95;inside.z=compact?-5:2.5;outside.z=16+Math.min(23,37/(2*Math.tan(T.MathUtils.degToRad(26))*camera.aspect));cameraPath.updateArcLengths();arrange();rig.style.transform=pose(progress);setDoors(progress);labels();restingOptics(progress);}
+function resize(){if(flying)return;stageRect=root.getBoundingClientRect();camera.aspect=stageRect.width/stageRect.height;camera.updateProjectionMatrix();perspective=stageRect.height/(2*Math.tan(T.MathUtils.degToRad(26)));view.style.perspective=perspective+'px';compact=camera.aspect<.95;inside.z=compact?-5:2.5;outside.z=16+Math.min(23,(2 * (19 - Math.abs(outside.x)) - .2)/(2*Math.tan(T.MathUtils.degToRad(26))*camera.aspect));if (castleScreen) {
+  const pixelsPerUnit = perspective / (outside.z - frontZ);
+  outside.y = stageRect.height / (2 * pixelsPerUnit);
+  castleScreen.parentElement.style.setProperty('--castle-image-width', `${38 * pixelsPerUnit}px`);
+  castleScreen.parentElement.style.setProperty('--castle-image-left', `${stageRect.width / 2 - (19 + outside.x) * pixelsPerUnit}px`);
+}
+cameraPath.updateArcLengths();arrange();rig.style.transform=pose(progress);setDoors(progress);labels();restingOptics(progress);}
 function finish(inward,push){progress=inward?1:0;flying=false;body.dataset.flight='idle';rig.style.transform=pose(progress);setDoors(progress);for(const el of [rig,...doorHinges.map(d=>d.leaf)])el.getAnimations().forEach(a=>a.cancel());if(push)history.pushState({hall:inward},'',inward?'project.html':'index.html');state();resize();}
 async function fly(inward,push=true){if(flying||Math.abs(progress-(inward?1:0))<.001)return;const start=progress,end=inward?1:0;flying=true;body.dataset.flight='passing';state();
  const frames=[],doorFrames=doorHinges.map(()=>[]);const duration=reduced.matches?1:2200;const started=performance.now();
